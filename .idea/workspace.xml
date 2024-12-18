@@ -4,38 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb72e5ad-1f28-4807-8fd0-f347d4ef22b7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.env_template" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.flake8" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/Finanalyze.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.venv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Statement_18.12.2023-18.12.2024.XLSX" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/poetry.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/file_readers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reports.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transactions_filters.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_file_readers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_reports.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_services.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_transactions_filters.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_settings.json" afterDir="false" />
+    <list default="true" id="bb72e5ad-1f28-4807-8fd0-f347d4ef22b7" name="Changes" comment="Инициализация проекта Finanalyze">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +22,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Ex6sTy/Finanalyze.git",
+    "accountId": "0bfce66d-e984-4000-951b-cd968582e4df"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -89,6 +65,19 @@
       <option name="presentableId" value="Default" />
       <updated>1734532663930</updated>
     </task>
+    <task id="LOCAL-00001" summary="Инициализация проекта Finanalyze">
+      <option name="closed" value="true" />
+      <created>1734541199487</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1734541199487</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Инициализация проекта Finanalyze" />
+    <option name="LAST_COMMIT_MESSAGE" value="Инициализация проекта Finanalyze" />
   </component>
 </project>
