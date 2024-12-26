@@ -4,14 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb72e5ad-1f28-4807-8fd0-f347d4ef22b7" name="Changes" comment=" Реализованы фильтрация переводов и поиск транзакций, доработаны тесты&#10; Добавлена функция filter_personal_transfers для фильтрации переводов физическим лицам, включая логику определения межбанковских и внутрибанковских переводов.&#10;Реализована функция simple_search для поиска транзакций по ключевым словам в описании.&#10;Доработаны тесты для обеих функций: написаны сценарии для разных случаев, включая граничные и пустые данные.&#10;Исправлены ошибки логики, найденные при тестировании.&#10;Устранены конфликты в форматах вывода JSON и списков транзакций.&#10;Проведено общее тестирование, все тесты успешно проходят.&#10;Обновлена структура services.py, добавлены комментарии и логи.">
-      <change afterPath="$PROJECT_DIR$/src/logging_config.py" afterDir="false" />
+    <list default="true" id="bb72e5ad-1f28-4807-8fd0-f347d4ef22b7" name="Changes" comment="feat: завершение разработки Finanalyze, исправления и документация&#10;&#10;- Добавлена интеграция с `logging_config` для логирования в модулях `views.py` и `reports.py`.&#10;- Исправлены ошибки в тестах, связанные с импортом и настройкой путей.&#10;- Обновлены `README.md`:&#10;  - Добавлены секции по запуску приложения, тестированию и линтерам.&#10;  - Включена информация о настройке окружения и использовании.&#10;- Настроены конфигурации:&#10;  - `black` (line-length=119).&#10;  - `isort` (профиль black, исключение директорий .git и __pycache__).&#10;  - `mypy` (добавлены строгие проверки: disallow_untyped_defs=true, warn_return_any=true).&#10;- Полностью написаны docstring для всех модулей: `views.py`, `reports.py`.&#10;- Исправлены ошибки в тестах: добавлены фикстуры, параметры и покрытие.&#10;- Завершена работа с модулем `main.py`, обеспечен корректный запуск через CLI.&#10;- Устранены проблемы с форматами файлов для входных данных.&#10;- Подготовлено приложение для финальной проверки: 100% тестов проходят успешно.">
+      <change beforePath="$PROJECT_DIR$/.flake8" beforeDir="false" afterPath="$PROJECT_DIR$/.flake8" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/poetry.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logging_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/logging_config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/reports.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/reports.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/services.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_reports.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_reports.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_services.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_services.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,6 +62,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;Python.services.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;develop&quot;
@@ -107,12 +113,22 @@
       <option name="project" value="LOCAL" />
       <updated>1734621046052</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat: добавлены отчеты, логирование и модуль views в проект Finanalyze&#10;&#10;- Разработана функция spending_by_category для анализа расходов по категориям за заданный период.&#10;- Вынесен модуль логирования logging_config для универсальной настройки логгеров.&#10;- Реализован модуль views с функциями для обработки главной страницы (main_page) и событий (events_page).&#10;- Исправлены ошибки сериализации JSON для типов данных Timestamps и numpy.&#10;- Обновлена обработка ошибок: добавлены проверки отсутствующих колонок и некорректного формата данных.&#10;- Оптимизированы операции с DataFrame для устранения предупреждений SettingWithCopyWarning.&#10;- Обновлена конфигурация логирования для детальной отладки и мониторинга.&#10;- Доработаны и расширены тесты для модулей reports, services и views, достигнуто высокое покрытие.&#10;- Успешно пройдены все тестовые сценарии, проект готов к дальнейшим улучшениям.">
+      <option name="closed" value="true" />
+      <created>1735055524030</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1735055524030</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Инициализация проекта Finanalyze" />
     <MESSAGE value=" Реализованы фильтрация переводов и поиск транзакций, доработаны тесты&#10; Добавлена функция filter_personal_transfers для фильтрации переводов физическим лицам, включая логику определения межбанковских и внутрибанковских переводов.&#10;Реализована функция simple_search для поиска транзакций по ключевым словам в описании.&#10;Доработаны тесты для обеих функций: написаны сценарии для разных случаев, включая граничные и пустые данные.&#10;Исправлены ошибки логики, найденные при тестировании.&#10;Устранены конфликты в форматах вывода JSON и списков транзакций.&#10;Проведено общее тестирование, все тесты успешно проходят.&#10;Обновлена структура services.py, добавлены комментарии и логи." />
-    <option name="LAST_COMMIT_MESSAGE" value=" Реализованы фильтрация переводов и поиск транзакций, доработаны тесты&#10; Добавлена функция filter_personal_transfers для фильтрации переводов физическим лицам, включая логику определения межбанковских и внутрибанковских переводов.&#10;Реализована функция simple_search для поиска транзакций по ключевым словам в описании.&#10;Доработаны тесты для обеих функций: написаны сценарии для разных случаев, включая граничные и пустые данные.&#10;Исправлены ошибки логики, найденные при тестировании.&#10;Устранены конфликты в форматах вывода JSON и списков транзакций.&#10;Проведено общее тестирование, все тесты успешно проходят.&#10;Обновлена структура services.py, добавлены комментарии и логи." />
+    <MESSAGE value="feat: добавлены отчеты, логирование и модуль views в проект Finanalyze&#10;&#10;- Разработана функция spending_by_category для анализа расходов по категориям за заданный период.&#10;- Вынесен модуль логирования logging_config для универсальной настройки логгеров.&#10;- Реализован модуль views с функциями для обработки главной страницы (main_page) и событий (events_page).&#10;- Исправлены ошибки сериализации JSON для типов данных Timestamps и numpy.&#10;- Обновлена обработка ошибок: добавлены проверки отсутствующих колонок и некорректного формата данных.&#10;- Оптимизированы операции с DataFrame для устранения предупреждений SettingWithCopyWarning.&#10;- Обновлена конфигурация логирования для детальной отладки и мониторинга.&#10;- Доработаны и расширены тесты для модулей reports, services и views, достигнуто высокое покрытие.&#10;- Успешно пройдены все тестовые сценарии, проект готов к дальнейшим улучшениям." />
+    <MESSAGE value="feat: завершение разработки Finanalyze, исправления и документация&#10;&#10;- Добавлена интеграция с `logging_config` для логирования в модулях `views.py` и `reports.py`.&#10;- Исправлены ошибки в тестах, связанные с импортом и настройкой путей.&#10;- Обновлены `README.md`:&#10;  - Добавлены секции по запуску приложения, тестированию и линтерам.&#10;  - Включена информация о настройке окружения и использовании.&#10;- Настроены конфигурации:&#10;  - `black` (line-length=119).&#10;  - `isort` (профиль black, исключение директорий .git и __pycache__).&#10;  - `mypy` (добавлены строгие проверки: disallow_untyped_defs=true, warn_return_any=true).&#10;- Полностью написаны docstring для всех модулей: `views.py`, `reports.py`.&#10;- Исправлены ошибки в тестах: добавлены фикстуры, параметры и покрытие.&#10;- Завершена работа с модулем `main.py`, обеспечен корректный запуск через CLI.&#10;- Устранены проблемы с форматами файлов для входных данных.&#10;- Подготовлено приложение для финальной проверки: 100% тестов проходят успешно." />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: завершение разработки Finanalyze, исправления и документация&#10;&#10;- Добавлена интеграция с `logging_config` для логирования в модулях `views.py` и `reports.py`.&#10;- Исправлены ошибки в тестах, связанные с импортом и настройкой путей.&#10;- Обновлены `README.md`:&#10;  - Добавлены секции по запуску приложения, тестированию и линтерам.&#10;  - Включена информация о настройке окружения и использовании.&#10;- Настроены конфигурации:&#10;  - `black` (line-length=119).&#10;  - `isort` (профиль black, исключение директорий .git и __pycache__).&#10;  - `mypy` (добавлены строгие проверки: disallow_untyped_defs=true, warn_return_any=true).&#10;- Полностью написаны docstring для всех модулей: `views.py`, `reports.py`.&#10;- Исправлены ошибки в тестах: добавлены фикстуры, параметры и покрытие.&#10;- Завершена работа с модулем `main.py`, обеспечен корректный запуск через CLI.&#10;- Устранены проблемы с форматами файлов для входных данных.&#10;- Подготовлено приложение для финальной проверки: 100% тестов проходят успешно." />
   </component>
 </project>

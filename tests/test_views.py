@@ -1,8 +1,10 @@
-import os
 import json
-import pytest
+import os
+
 import pandas as pd
-from src.views import main_page, events_page
+import pytest
+
+from src.views import events_page, main_page
 
 
 @pytest.fixture
@@ -42,11 +44,13 @@ def test_main_page_empty_data(temp_file):
 
 
 def test_events_page_valid_data():
-    data = pd.DataFrame([
-        {"Категория": "Еда", "Сумма": 150},
-        {"Категория": "Еда", "Сумма": 200},
-        {"Категория": "Развлечения", "Сумма": 300},
-    ])
+    data = pd.DataFrame(
+        [
+            {"Категория": "Еда", "Сумма": 150},
+            {"Категория": "Еда", "Сумма": 200},
+            {"Категория": "Развлечения", "Сумма": 300},
+        ]
+    )
     result = events_page(data)
     result_data = json.loads(result)
     assert result_data["total_events"] == 3
@@ -79,4 +83,3 @@ def test_events_page_invalid_data_format():
     # Проверяем, что только валидные данные учтены
     assert result_data["total_events"] == 2
     assert result_data["categories"] == {"Продукты": 1, "Транспорт": 1}
-

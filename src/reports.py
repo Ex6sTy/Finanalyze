@@ -1,15 +1,34 @@
 import json
-from datetime import datetime, timedelta
-import pandas as pd
-from src.logging_config import setup_logger
 import logging
+from datetime import datetime, timedelta
+
 import numpy as np
+import pandas as pd
+
+from src.logging_config import setup_logger
 from src.services import formatter
 
 # Настройка логгера
 reports_logger = setup_logger("reports", "logs/reports.log", level=logging.DEBUG)
 
+
 def spending_by_category(df: pd.DataFrame, category: str, start_date: str) -> str:
+    """
+    Анализирует траты по указанной категории за трёхмесячный период.
+
+    Args:
+        df (pd.DataFrame): DataFrame с колонками "Дата операции", "Категория", "Сумма".
+        category (str): Категория для анализа.
+        start_date (str): Дата начала периода (формат "YYYY-MM-DD").
+
+    Returns:
+        str: JSON-строка с анализом трат, содержащая общую сумму, транзакции
+             и период анализа. В случае ошибки возвращается JSON с описанием ошибки.
+
+    Raises:
+        KeyError: Если отсутствуют необходимые колонки в DataFrame.
+        ValueError: Если дата не соответствует формату "YYYY-MM-DD".
+    """
     reports_logger.info(f"Начало анализа трат по категории '{category}' с даты {start_date}.")
 
     # Проверка на наличие необходимых колонок
@@ -31,9 +50,7 @@ def spending_by_category(df: pd.DataFrame, category: str, start_date: str) -> st
 
     # Фильтрация по категории и дате
     filtered_df = df[
-        (df["Категория"] == category) &
-        (df["Дата операции"] >= start_date) &
-        (df["Дата операции"] < end_date)
+        (df["Категория"] == category) & (df["Дата операции"] >= start_date) & (df["Дата операции"] < end_date)
     ]
 
     # Преобразование дат операций в строки
@@ -43,7 +60,11 @@ def spending_by_category(df: pd.DataFrame, category: str, start_date: str) -> st
     # Проверка на пустой результат
     if filtered_df.empty:
         reports_logger.warning(f"Нет транзакций по категории '{category}' за указанный период.")
-        return json.dumps({"category": category, "total_spent": 0, "transactions": []}, ensure_ascii=False, indent=4)
+        return json.dumps(
+            {"category": category, "total_spent": 0, "transactions": []},
+            ensure_ascii=False,
+            indent=4,
+        )
 
     # Подсчет общей суммы
     total_spending = int(filtered_df["Сумма"].sum())  # Преобразуем в int для JSON совместимости
@@ -53,9 +74,11 @@ def spending_by_category(df: pd.DataFrame, category: str, start_date: str) -> st
         "category": category,
         "total_spent": total_spending,
         "start_date": start_date.strftime("%Y-%m-%d"),  # Преобразуем дату в строку
-        "end_date": end_date.strftime("%Y-%m-%d"),      # Преобразуем дату в строку
-        "transactions": filtered_df.to_dict(orient="records")
+        "end_date": end_date.strftime("%Y-%m-%d"),  # Преобразуем дату в строку
+        "transactions": filtered_df.to_dict(orient="records"),
     }
 
-    reports_logger.info(f"Траты по категории '{category}': {total_spending} за период {start_date.date()} - {end_date.date()}.")
+    reports_logger.info(
+        f"Траты по категории '{category}': {total_spending} за период {start_date.date()} - {end_date.date()}."
+    )
     return json.dumps(result, ensure_ascii=False, indent=4)

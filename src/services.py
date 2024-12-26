@@ -1,11 +1,10 @@
-import os
 import json
 import logging
-from datetime import datetime
-from typing import Any, Dict, List
+import os
 import re
+from datetime import datetime
 from math import ceil
-
+from typing import Any, Dict, List
 from unicodedata import category
 
 # Создаем директорию для логов, если она отсутствует
@@ -24,9 +23,7 @@ file_handler.setFormatter(formatter)
 services_logger.addHandler(file_handler)
 
 
-def analyze_cashback_categories(
-    transactions: List[Dict[str, Any]], year: int, month: int
-) -> Dict[str, float]:
+def analyze_cashback_categories(transactions: List[Dict[str, Any]], year: int, month: int) -> Dict[str, float]:
     """
     Анализирует транзакции и возвращает сумму кешбэка по категориям за указанный месяц.
 
@@ -103,7 +100,9 @@ def investment_bank(month: str, transactions: List[Dict[str, Any]], limit: int) 
         try:
             amount = float(amount)
         except (ValueError, TypeError):
-            services_logger.debug(f"Пропущена транзакция с датой {operation_date}: некорректный формат суммы {amount}.")
+            services_logger.debug(
+                f"Пропущена транзакция с датой {operation_date}: некорректный формат суммы {amount}."
+            )
             continue
 
         # Расчет накоплений
@@ -137,17 +136,10 @@ def simple_search(transactions: List[Dict[str, Any]], query: str) -> str:
         category = tx.get("Категория", "").lower()
         tx_type = tx.get("Тип", "").lower()
 
-        if (
-            query_lower in description
-            or query_lower in comment
-            or query_lower in category
-            or query_lower in tx_type
-        ):
+        if query_lower in description or query_lower in comment or query_lower in category or query_lower in tx_type:
             matched_transactions.append(tx)
 
-    services_logger.info(
-        f"Поиск завершен. Найдено {len(matched_transactions)} транзакций, соответсвующих запросу."
-    )
+    services_logger.info(f"Поиск завершен. Найдено {len(matched_transactions)} транзакций, соответсвующих запросу.")
 
     # Конвертация результата в JSON
     try:
@@ -185,45 +177,3 @@ def filter_personal_transfers(transactions: List[Dict[str, Any]]) -> List[Dict[s
 
     services_logger.info(f"Фильтрация завершена. Найдено {len(filtered_transactions)} транзакций.")
     return filtered_transactions
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
