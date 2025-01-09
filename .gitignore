@@ -12,3 +12,6 @@ venv/
 build/
 dist/
 *.egg-info/
+
+# Ignore IDE configuration files
+.idea/
