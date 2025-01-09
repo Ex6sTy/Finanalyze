@@ -2,11 +2,9 @@ import json
 import logging
 from datetime import datetime, timedelta
 
-import numpy as np
 import pandas as pd
 
 from src.logging_config import setup_logger
-from src.services import formatter
 
 # Настройка логгера
 reports_logger = setup_logger("reports", "logs/reports.log", level=logging.DEBUG)

@@ -7,6 +7,7 @@ from src.logging_config import setup_logger
 # Настройка логгера для главной страницы
 views_logger = setup_logger("views", "logs/views.log")
 
+
 def main_page(file_path: str) -> str:
     """
     Обрабатывает файл с транзакциями и возвращает их общее количество и содержимое в формате JSON.
@@ -43,8 +44,10 @@ def main_page(file_path: str) -> str:
             indent=4,
         )
 
+
 # Настройка логгера для страницы событий
 events_logger = setup_logger("events", "logs/events.log")
+
 
 def events_page(data: pd.DataFrame) -> str:
     """

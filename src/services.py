@@ -3,9 +3,7 @@ import logging
 import os
 import re
 from datetime import datetime
-from math import ceil
 from typing import Any, Dict, List
-from unicodedata import category
 
 # Создаем директорию для логов, если она отсутствует
 os.makedirs("logs", exist_ok=True)
