@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.log
+
+# Virtual environments
+venv/
+.env.example
+
+# Build and distribution
+build/
+dist/
+*.egg-info/
+
+# Ignore IDE configuration files
+.idea/
